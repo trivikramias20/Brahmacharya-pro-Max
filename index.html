@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karan The New Age Brahmachari</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#000;color:#fff;min-height:100vh;overflow-x:hidden}
+.cosmic{position:fixed;width:100%;height:100%;z-index:0;overflow:hidden}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite}
+@keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+.nebula{position:absolute;border-radius:50%;filter:blur(60px);animation:pulse 8s infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.6;transform:scale(1.1)}}
+.shoot{position:absolute;width:2px;height:2px;background:#fff;box-shadow:0 0 4px 2px rgba(255,255,255,.8);animation:shoot 3s linear infinite}
+@keyframes shoot{0%{transform:translate(0,0);opacity:1}100%{transform:translate(-300px,300px);opacity:0}}
+.grad{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at top,rgba(88,28,135,.2),transparent 50%),radial-gradient(ellipse at bottom,rgba(29,78,216,.2),transparent 50%);pointer-events:none;z-index:1}
+.container{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:20px}
+header{text-align:center;padding:40px 20px 60px}
+.logo{width:80px;height:80px;margin:0 auto 20px;background:linear-gradient(135deg,#7c3aed,#2563eb);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2.5em;box-shadow:0 10px 40px rgba(124,58,237,.4);animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+h1{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px;margin-bottom:10px}
+.subtitle{font-size:1em;color:#9ca3af;font-weight:500}
+.tracker{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(37,99,235,.15));backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,.3);border-radius:24px;padding:40px 30px;margin-bottom:30px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.title{text-align:center;font-size:1.5em;margin-bottom:30px;font-weight:700;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.controls{text-align:center;margin-bottom:30px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.input{padding:14px 20px;border-radius:12px;background:rgba(0,0,0,.5);color:#fff;border:1px solid rgba(167,139,250,.3);font-size:.95em}
+.input:focus{outline:none;border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.2)}
+.btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;padding:14px 30px;border:none;border-radius:12px;cursor:pointer;font-size:.95em;font-weight:600;box-shadow:0 4px 15px rgba(124,58,237,.4)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-red{background:rgba(239,68,68,.3);border:1px solid rgba(239,68,68,.5)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px}
+.unit{background:rgba(0,0,0,.4);border:1px solid rgba(167,139,250,.3);border-radius:16px;padding:25px 15px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.unit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:linear-gradient(90deg,transparent,#7c3aed,transparent);animation:shimmer 3s infinite}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+.unit:hover{transform:translateY(-5px);border-color:#7c3aed;box-shadow:0 10px 30px rgba(124,58,237,.4)}
+.val{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.label{font-size:.75em;color:#9ca3af;margin-top:8px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.prog{margin-top:30px;padding:25px;background:rgba(0,0,0,.4);border-radius:16px;border:1px solid rgba(167,139,250,.3)}
+.bar{height:8px;background:rgba(167,139,250,.2);border-radius:10px;overflow:hidden;margin:15px 0}
+.fill{height:100%;background:linear-gradient(90deg,#7c3aed,#2563eb);border-radius:10px;transition:width .5s;box-shadow:0 0 10px rgba(124,58,237,.6)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:30px}
+.card{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(37,99,235,.15));backdrop-filter:blur(20px);border:1px solid rgba(167,139,250,.3);border-radius:20px;padding:30px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7c3aed,#2563eb);transform:scaleX(0);transition:transform .3s}
+.card:hover::before{transform:scaleX(1)}
+.card:hover{transform:translateY(-8px);border-color:#7c3aed;box-shadow:0 20px 40px rgba(124,58,237,.4)}
+.icon{font-size:2.5em;margin-bottom:15px}
+.ctitle{font-size:1.4em;margin-bottom:10px;font-weight:700;color:#a78bfa}
+.card p{color:#9ca3af;font-size:.95em}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:9999;overflow-y:auto}
+.mcontent{background:linear-gradient(135deg,rgba(15,15,25,.98),rgba(25,15,40,.98));border:1px solid rgba(167,139,250,.3);border-radius:24px;max-width:900px;margin:30px auto;padding:40px 30px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.close{position:absolute;top:20px;right:20px;font-size:1.5em;cursor:pointer;color:#9ca3af;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);border-radius:12px;width:45px;height:45px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.close:hover{background:rgba(239,68,68,.2);color:#ef4444}
+.mtitle{font-size:2em;margin-bottom:25px;font-weight:800;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding-right:60px}
+.section{margin-bottom:20px;padding:20px;background:rgba(167,139,250,.05);border-radius:12px;border-left:3px solid #7c3aed}
+.section h3{margin-bottom:10px;color:#a78bfa;font-weight:700}
+.section p{color:#d1d5db;line-height:1.6}
+.shloka{font-style:italic;color:#fbbf24;background:rgba(251,191,36,.1);padding:20px;border-radius:12px;margin:20px 0;border-left:3px solid #fbbf24;line-height:1.8}
+.tasks{list-style:none;margin-top:20px}
+.task{background:rgba(124,58,237,.1);padding:15px 20px;margin:10px 0;border-radius:12px;border-left:3px solid #7c3aed;color:#d1d5db}
+.task:hover{background:rgba(124,58,237,.2);transform:translateX(5px)}
+.textarea{width:100%;min-height:300px;background:rgba(0,0,0,.5);border:1px solid rgba(167,139,250,.3);border-radius:12px;padding:20px;color:#fff;font-size:1em;font-family:inherit;line-height:1.6;resize:vertical}
+.textarea:focus{outline:none;border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.2)}
+.toast{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:15px 25px;border-radius:12px;box-shadow:0 10px 30px rgba(16,185,129,.4);z-index:10000;display:none;font-weight:600}
+@media(max-width:768px){h1{font-size:1.8em}.mcontent{margin:15px;padding:30px 20px}.grid{grid-template-columns:repeat(2,1fr)}.val{font-size:2em}}
+</style>
+</head>
+<body>
+<div class="cosmic" id="cosmic"></div>
+<div class="grad"></div>
+<div class="container">
+<header>
+<div class="logo">🕉️</div>
+<h1>KARAN THE NEW AGE BRAHMACHARI</h1>
+<p class="subtitle">Journey of Self-Mastery & Ancient Wisdom</p>
+</header>
+<div class="tracker">
+<h2 class="title">🕉️ Digital Tracker</h2>
+<div class="controls">
+<input type="datetime-local" id="dt" class="input">
+<button class="btn" onclick="start()">Start Journey</button>
+<button class="btn btn-red" onclick="reset()">Reset</button>
+</div>
+<div class="grid">
+<div class="unit"><div class="val" id="d">0</div><div class="label">Days</div></div>
+<div class="unit"><div class="val" id="h">0</div><div class="label">Hours</div></div>
+<div class="unit"><div class="val" id="m">0</div><div class="label">Minutes</div></div>
+<div class="unit"><div class="val" id="s">0</div><div class="label">Seconds</div></div>
+</div>
+<div class="prog">
+<div style="display:flex;justify-content:space-between;margin-bottom:10px">
+<span style="font-weight:600;color:#d1d5db">Next Milestone</span>
+<span id="mt" style="color:#a78bfa;font-weight:700">7 Days</span>
+</div>
+<div class="bar"><div class="fill" id="pf" style="width:0%"></div></div>
+<div id="tx" style="text-align:center;color:#9ca3af;font-size:.9em;margin-top:10px">Keep going! 🔥</div>
+</div>
+</div>
+<div class="cards">
+<div class="card" onclick="show('m1')"><div class="icon">🔥</div><div class="ctitle">Urge Emergency</div><p>Immediate help when urges arise</p></div>
+<div class="card" onclick="show('m2')"><div class="icon">✨</div><div class="ctitle">Benefits</div><p>Ayurvedic wisdom on Shukra Dhatu retention</p></div>
+<div class="card" onclick="show('m3')"><div class="icon">⚠️</div><div class="ctitle">Disadvantages</div><p>Effects of Shukra Dhatu Kshaya</p></div>
+<div class="card" onclick="show('m4')"><div class="icon">🌿</div><div class="ctitle">Ayurveda on Semen</div><p>Ancient wisdom and modern understanding</p></div>
+<div class="card" onclick="show('m5')"><div class="icon">📜</div><div class="ctitle">My Rules</div><p>Personal guidelines and commitments</p></div>
+</div>
+</div>
+<div id="m1" class="modal" onclick="if(event.target==this)hide('m1')">
+<div class="mcontent">
+<div class="close" onclick="hide('m1')">×</div>
+<h2 class="mtitle">🔥 Urge Emergency Protocol</h2>
+<p style="font-size:1.1em;margin-bottom:25px;color:#d1d5db">Take immediate action:</p>
+<ul class="tasks">
+<li class="task">🧘 Do 20 minutes of meditation or pranayama</li>
+<li class="task">🏃 Perform 50 push-ups or 100 jumping jacks</li>
+<li class="task">🚿 Take a cold shower right now</li>
+<li class="task">📖 Read sacred texts for 15 minutes</li>
+<li class="task">🚶 Go for a 30-minute walk outside</li>
+<li class="task">☎️ Call a mentor or trusted friend</li>
+<li class="task">✍️ Write down your goals</li>
+<li class="task">🎵 Listen to spiritual music</li>
+<li class="task">🙏 Chant "Om Namah Shivaya" 108 times</li>
+<li class="task">💪 This urge is temporary, your goals are permanent</li>
+</ul>
+</div>
+</div>
+<div id="m2" class="modal" onclick="if(event.target==this)hide('m2')">
+<div class="mcontent">
+<div class="close" onclick="hide('m2')">×</div>
+<h2 class="mtitle">✨ Benefits of Shukra Dhatu Retention</h2>
+<div class="shloka">"महावीर्यवान् भवति बलवान् पण्डितो दीर्घायुर्भवति।"<br>(Mahabali, intelligent, and long-lived becomes one who preserves vital energy)</div>
+<div class="section"><h3>🧠 Mental Benefits</h3><p>Enhanced memory, concentration, and intellectual capacity. Clarity of thought and improved decision-making abilities.</p></div>
+<div class="section"><h3>💪 Physical Benefits</h3><p>Increased strength, vitality, and endurance. Improved immunity and overall health. Radiant skin and energetic presence.</p></div>
+<div class="shloka">"शुक्रधातुः सर्वधातूनां सारः परमं बलम्।"<br>(Shukra Dhatu is the essence of all dhatus and the supreme strength)</div>
+<div class="section"><h3>🔥 Spiritual Benefits</h3><p>Enhanced spiritual practices, deeper meditation, awakening of Kundalini energy, and connection with higher consciousness.</p></div>
+<div class="section"><h3>😊 Emotional Benefits</h3><p>Increased confidence, emotional stability, inner peace, and magnetism. Improved relationships and social interactions.</p></div>
+</div>
+</div>
+<div id="m3" class="modal" onclick="if(event.target==this)hide('m3')">
+<div class="mcontent">
+<div class="close" onclick="hide('m3')">×</div>
+<h2 class="mtitle">⚠️ Disadvantages of Shukra Dhatu Kshaya</h2>
+<div class="shloka">"शुक्रक्षये दौर्बल्यं मन्दाग्निश्च प्रजायते।"<br>(Loss of Shukra leads to weakness and diminished digestive fire)</div>
+<div class="section"><h3>🔻 Physical Deterioration</h3><p>Weakness, fatigue, loss of vitality. Diminished immunity, frequent illness. Premature aging and loss of luster.</p></div>
+<div class="section"><h3>🧠 Mental Decline</h3><p>Poor memory and concentration. Anxiety, depression, and mood swings. Lack of motivation and mental fog.</p></div>
+<div class="shloka">"वीर्यनाशात् प्राणनाशः प्राणनाशान् मृत्युः।"<br>(Loss of vital energy leads to loss of life force)</div>
+<div class="section"><h3>💔 Emotional Instability</h3><p>Loss of confidence and self-esteem. Irritability and social withdrawal. Lack of purpose and direction.</p></div>
+<div class="section"><h3>🚫 Spiritual Blockage</h3><p>Difficulty in meditation and spiritual practices. Disconnection from higher self. Obstacles in spiritual progress.</p></div>
+</div>
+</div>
+<div id="m4" class="modal" onclick="if(event.target==this)hide('m4')">
+<div class="mcontent">
+<div class="close" onclick="hide('m4')">×</div>
+<h2 class="mtitle">🌿 Ayurveda on Semen (Shukra Dhatu)</h2>
+<div class="shloka">"रसाद् रक्तं ततो मांसं मांसान्मेदः प्रजायते।<br>मेदसोऽस्थि ततो मज्जा मज्जायाः शुक्रसम्भवः।।"<br>(From plasma to blood to muscle to fat to bone to marrow to semen)</div>
+<div class="section"><h3>📚 The Seventh Dhatu</h3><p>Shukra Dhatu is the seventh and most refined tissue element. It takes 40 days to produce one drop of semen. It is the essence of all bodily tissues.</p></div>
+<div class="section"><h3>🔬 Composition & Importance</h3><p>Shukra nourishes the entire body. It is responsible for immunity (Ojas), vitality, strength, and reproductive capabilities. When conserved, it transforms into Ojas.</p></div>
+<div class="shloka">"बिन्दुः शक्तिः बिन्दुः जीवनं बिन्दुः सर्वस्य धारणम्।"<br>(The drop is power, the drop is life, the drop is the support of everything)</div>
+<div class="section"><h3>⚡ Transformation of Energy</h3><p>When conserved through Brahmacharya, sexual energy rises upward (Urdhvaretas) and transforms into spiritual power. This awakens higher consciousness.</p></div>
+<div class="section"><h3>🌟 Ojas - The Supreme Essence</h3><p>Preserved Shukra converts to Ojas, manifesting as a golden aura, magnetic personality, exceptional health, and spiritual radiance.</p></div>
+</div>
+</div>
+<div id="m5" class="modal" onclick="if(event.target==this)hide('m5')">
+<div class="mcontent">
+<div class="close" onclick="hide('m5')">×</div>
+<h2 class="mtitle">📜 My Personal Rules</h2>
+<p style="margin-bottom:20px;color:#d1d5db">Write your personal guidelines:</p>
+<textarea id="rules" class="textarea" placeholder="Enter your rules here..."></textarea>
+<button class="btn" onclick="saveR()">💾 Save Rules</button>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+let st=null,ms=[7,14,21,30,60,90,120,180,365];
+function cosmic(){let c=document.getElementById('cosmic'),h='';for(let i=0;i<300;i++){let sz=Math.random()*3;h+=`<div class="star" style="width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s"></div>`}let cl=['rgba(124,58,237,.4)','rgba(37,99,235,.4)','rgba(147,51,234,.4)','rgba(59,130,246,.4)'];for(let i=0;i<5;i++){let sz=200+Math.random()*300;h+=`<div class="nebula" style="width:${sz}px;height:${sz}px;background:${cl[Math.floor(Math.random()*cl.length)]};left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*8}s"></div>`}for(let i=0;i<5;i++)h+=`<div class="shoot" style="left:${Math.random()*100}%;top:${Math.random()*50}%;animation-delay:${Math.random()*8}s"></div>`;c.innerHTML=h}
+async function save(k,v){try{await window.storage.set(k,JSON.stringify(v))}catch(e){localStorage.setItem(k,JSON.stringify(v))}}
+async function load(k){try{let r=await window.storage.get(k);return r?JSON.parse(r.value):null}catch(e){let f=localStorage.getItem(k);return f?JSON.parse(f):null}}
+async function init(){let sv=await load('bs');if(sv){st=new Date(sv);let ld=new Date(st.getTime()-st.getTimezoneOffset()*60000);document.getElementById('dt').value=ld.toISOString().slice(0,16)}else{st=new Date();let ld=new Date(st.getTime()-st.getTimezoneOffset()*60000);document.getElementById('dt').value=ld.toISOString().slice(0,16)}upd();setInterval(upd,1000)}
+function upd(){if(!st)return;let n=new Date(),df=n-st;if(df<0){document.getElementById('d').textContent='0';document.getElementById('h').textContent='0';document.getElementById('m').textContent='0';document.getElementById('s').textContent='0';return}let dy=Math.floor(df/86400000),hr=Math.floor((df%86400000)/3600000),mn=Math.floor((df%3600000)/60000),sc=Math.floor((df%60000)/1000);document.getElementById('d').textContent=dy;document.getElementById('h').textContent=hr;document.getElementById('m').textContent=mn;document.getElementById('s').textContent=sc;let nm=ms.find(x=>x>dy)||365,pm=ms.filter(x=>x<=dy).pop()||0,pg=((dy-pm)/(nm-pm))*100;pg=Math.min(pg,100);document.getElementById('pf').style.width=pg+'%';document.getElementById('mt').textContent=nm+' Days';if(dy>=365)document.getElementById('tx').textContent='🏆 Legendary Status Achieved!';else if(dy>=90)document.getElementById('tx').textContent='⚡ Incredible progress! You are unstoppable!';else if(dy>=30)document.getElementById('tx').textContent='🔥 Amazing! You\'re building real momentum!';else if(dy>=7)document.getElementById('tx').textContent='💪 Great start! Keep pushing forward!';else document.getElementById('tx').textContent='Keep going! Every moment counts! 🔥'}
+async function start(){let v=document.getElementById('dt').value;if(!v){toast('⚠️ Please select a date and time!');return}st=new Date(v);await save('bs',st.toISOString());toast('✅ Journey started! Stay strong! 💪');upd()}
+async function reset(){if(confirm('Are you sure you want to reset? This will clear your progress.')){st=new Date();let ld=new Date(st.getTime()-st.getTimezoneOffset()*60000);document.getElementById('dt').value=ld.toISOString().slice(0,16);await save('bs',st.toISOString());toast('🔄 Timer reset. Start fresh!');upd()}}
+async function loadR(){let r=await load('br');if(r)document.getElementById('rules').value=r}
+async function saveR(){let r=document.getElementById('rules').value;await save('br',r);toast('✅ Rules saved successfully! 📜')}
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000)}
+function show(id){document.getElementById(id).style.display='block';document.body.style.overflow='hidden';if(id==='m5')loadR()}
+function hide(id){document.getElementById(id).style.display='none';document.body.style.overflow='auto'}
+cosmic();init();
+</script>
+</body>
+</html>
